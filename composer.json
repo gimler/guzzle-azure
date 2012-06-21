@@ -20,7 +20,7 @@
     },
     "autoload": {
         "psr-0": {
-            "Guzzle\\Pazure": "src/"
+            "Guzzle\\Azure": "src/"
         }
     }
 }
