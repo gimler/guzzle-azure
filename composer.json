@@ -1,0 +1,26 @@
+{
+    "name": "pazure/guzzle-azure",
+    "type": "library",
+    "description": "Azure plugin for the guzzle php http client.",
+    "keywords": ["framework", "azure", "api"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Gordon Franke",
+            "email": "info@nevalon.de"
+        },
+        {
+            "name": "Guzzle Azure Community",
+            "homepage": "https://github.com/gimler/guzzle-azure/contributors"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.2",
+        "guzzle/guzzle": "dev-master"
+    },
+    "autoload": {
+        "psr-0": {
+            "Guzzle\\Pazure": "src/"
+        }
+    }
+}

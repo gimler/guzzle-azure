@@ -1,0 +1,6 @@
+HTTP/1.1 200 OK
+Content-Length: 0
+Server: 6.0.6002.18488 (rd_rdfe_stable.120601-1825) Microsoft-HTTPAPI/2.0
+x-ms-request-id: ec2c8031ddee466e90646634a5a39556
+Date: Thu, 21 Jun 2012 07:26:47 GMT
+

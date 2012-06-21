@@ -1,0 +1,8 @@
+HTTP/1.1 404 Not Found
+Content-Length: 195
+Content-Type: application/xml; charset=utf-8
+Server: 6.0.6002.18488 (rd_rdfe_stable.120619-2223) Microsoft-HTTPAPI/2.0
+x-ms-request-id: 9f7f6906649b4bdab95827cbb3a0401c
+Date: Thu, 21 Jun 2012 07:43:06 GMT
+
+<Error xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><Code>ResourceNotFound</Code><Message>The certificate was not found.</Message></Error>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<client>
+        <commands>
+                <command name="locations.list" method="GET" uri="locations">
+                        <doc>The List Locations operation lists all of the data center locations that are valid for your subscription.</doc>
+                </command>
+        </commands>
+</client>
