@@ -4,5 +4,10 @@
 		<command name="services.storage.list" method="GET" uri="services/storageservices">
 			<doc>The List Storage Accounts operation lists the storage accounts available under the current subscription.</doc>
 		</command>
+		<command name="services.storage.create" method="POST" uri="services/storageservices">
+			<doc>The Create Storage Account operation creates a new storage account in Windows Azure.</doc>
+			<param name="Content-Type" static="application/xml" location="header:Content-Type" />
+			<param name="data" type="string" location="body" />
+		</command>
 	</commands>
 </client>

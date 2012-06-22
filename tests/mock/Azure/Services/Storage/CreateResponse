@@ -1,0 +1,7 @@
+HTTP/1.1 202 Accepted
+Content-Length: 0
+Server: 6.0.6002.18488 (rd_rdfe_stable.120619-2223) Microsoft-HTTPAPI/2.0
+x-ms-request-id: 2e6a64e10dbe443dbc875a2626e862de
+location: https://management.core.windows.net/subscriptions/a6c26c09-324b-41ea-aecb-00807a60bd8a/storage/pazure5
+Date: Fri, 22 Jun 2012 13:39:15 GMT
+
