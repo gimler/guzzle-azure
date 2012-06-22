@@ -1,0 +1,8 @@
+HTTP/1.1 200 OK
+Content-Length: 119
+Content-Type: application/xml; charset=utf-8
+Server: 6.0.6002.18488 (rd_rdfe_stable.120619-2223) Microsoft-HTTPAPI/2.0
+x-ms-request-id: 036fe90df08c4d3fa7b5abe2a17e8d28
+Date: Fri, 22 Jun 2012 08:56:19 GMT
+
+<HostedServices xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"/>

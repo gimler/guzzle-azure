@@ -1,0 +1,8 @@
+HTTP/1.1 200 OK                                                                                                                                                                                                                                                         
+Content-Length: 612                                                                                                                                                                                                                                                            
+Content-Type: application/xml; charset=utf-8                                                                                                                                                                                                                                   
+Server: 6.0.6002.18488 (rd_rdfe_stable.120619-2223) Microsoft-HTTPAPI/2.0
+x-ms-request-id: c9cc9253e52645a0acd07051b8781aeb
+Date: Fri, 22 Jun 2012 08:41:27 GMT
+
+<HostedServices xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><HostedService><Url>https://management.core.windows.net/a879ee8a-deed-4c99-ad74-6509b2f6fd02/services/hostedservices/pazure</Url><ServiceName>pazure</ServiceName><HostedServiceProperties><Description>New cloud service</Description><Location>West Europe</Location><Label>cGF6dXJl</Label><Status>Created</Status><DateCreated>2012-06-19T08:04:03Z</DateCreated><DateLastModified>2012-06-19T08:04:03Z</DateLastModified><ExtendedProperties/></HostedServiceProperties></HostedService></HostedServices>

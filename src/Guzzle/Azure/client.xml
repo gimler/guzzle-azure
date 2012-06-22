@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <client>
-    <includes>
-        <include path="certificates.xml" />
-        <include path="locations.xml" />
-    </includes>
+	<includes>
+		<include path="certificates.xml" />
+		<include path="locations.xml" />
+		<include path="Services/storage.xml" />
+		<include path="Services/hosted.xml" />
+	</includes>
 </client>

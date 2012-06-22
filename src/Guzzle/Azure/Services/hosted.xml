@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<client>
+	<commands>
+		<command name="services.hosted.list" method="GET" uri="services/hostedservices">
+			<doc>The List Hosted Services operation lists the hosted services available under the current subscription.</doc>
+		</command>
+	</commands>
+</client>
