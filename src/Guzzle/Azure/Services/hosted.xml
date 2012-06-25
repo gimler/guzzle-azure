@@ -4,5 +4,9 @@
 		<command name="services.hosted.list" method="GET" uri="services/hostedservices">
 			<doc>The List Hosted Services operation lists the hosted services available under the current subscription.</doc>
 		</command>
+		<command name="services.hosted.delete" method="DELETE" uri="services/hostedservices/{service_name}">
+			<doc>The Delete Hosted Service operation deletes the specified hosted service from Windows Azure.</doc>
+			<param name="service_name" type="string" required="true" />
+		</command>
 	</commands>
 </client>

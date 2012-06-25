@@ -9,5 +9,9 @@
 			<param name="Content-Type" static="application/xml" location="header:Content-Type" />
 			<param name="data" type="string" location="body" />
 		</command>
+		<command name="services.storage.delete" method="DELETE" uri="services/storageservices/{service_name}">
+			<doc>The Delete Storage Account operation deletes the specified storage account from Windows Azure.</doc>
+			<param name="service_name" type="string" required="true" />
+		</command>
 	</commands>
 </client>

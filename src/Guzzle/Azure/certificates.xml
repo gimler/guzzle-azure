@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <client>
-		<commands>
-			<command name="certificates.list" method="GET" uri="certificates">
-				<doc>Lists and returns basic information about all of the management certificates associated with the specified subscription.</doc>
+	<commands>
+		<command name="certificates.list" method="GET" uri="certificates">
+			<doc>Lists and returns basic information about all of the management certificates associated with the specified subscription.</doc>
 		</command>
 		<command name="certificates.get" method="GET" uri="certificates/{thumbprint}">
 			<doc>Gets information about the management certificate with the specified thumbprint.</doc>
