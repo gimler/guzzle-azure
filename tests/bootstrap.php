@@ -10,21 +10,6 @@ if (!file_exists(dirname(__DIR__) . DIRECTORY_SEPARATOR . 'composer.lock')) {
 
 require_once 'PHPUnit/TextUI/TestRunner.php';
 
-// Register an autoloader for the client being tested
-spl_autoload_register(function($class) {
-    if (0 === strpos($class, 'Guzzle\Azure')) {
-        $class = str_replace('Guzzle\Azure', '', $class);
-        if ('\\' != DIRECTORY_SEPARATOR) {
-            $class = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'Guzzle/Azure' . DIRECTORY_SEPARATOR . str_replace('\\', DIRECTORY_SEPARATOR, $class) . '.php';
-        } else {
-            $class = dirname(__DIR__) . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'Guzzle\Azure' . DIRECTORY_SEPARATOR . $class . '.php';
-        }
-        if (file_exists($class)) {
-            require $class;
-        }
-    }
-});
-
 // Include the composer autoloader
 $loader = require_once dirname(__DIR__) . DIRECTORY_SEPARATOR . 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
 
