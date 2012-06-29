@@ -11,7 +11,7 @@
 		</command>
 		<command name="services.storage.delete" method="DELETE" uri="services/storageservices/{service_name}">
 			<doc>The Delete Storage Account operation deletes the specified storage account from Windows Azure.</doc>
-			<param name="service_name" type="string" required="true" />
+			<param name="service_name" type="regex:/^[0-9a-z]+$/" required="true" min_length="3" max_length="24" />
 		</command>
 	</commands>
 </client>
