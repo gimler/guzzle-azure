@@ -1,0 +1,8 @@
+HTTP/1.1 200 OK
+Content-Length: 510
+Content-Type: application/xml; charset=utf-8
+Server: 6.0.6002.18488 (rd_rdfe_stable.120628-0756) Microsoft-HTTPAPI/2.0
+x-ms-request-id: cc56af920f8f46fa9efea20b776eb6b9
+Date: Fri, 29 Jun 2012 09:11:12 GMT
+
+<StorageService xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><Url>https://management.core.windows.net/p6d23c49-364b-41ea-azcb-00807a60bd8a/services/storageservices/pazure3</Url><StorageServiceKeys><Primary>Xy73COn7GiXknf90f7zEP3rXJ9SAY6ao2KbnfmmZrAD8aXSbFc59B8aapx0KG/Ff8YJRxSnTFRFzu2mCt4tucg==</Primary><Secondary>PjJj4Iq8vl0gmJp/gp/z9d+sSeduGgibrtJ438g/iHeiRP6OGZa9/WhaoCSqMzyZLZoPZn+tl08ogEWPM+3Ozw==</Secondary></StorageServiceKeys></StorageService>

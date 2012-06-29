@@ -1,0 +1,8 @@
+HTTP/1.1 404 Not Found
+Content-Length: 209
+Content-Type: application/xml; charset=utf-8
+Server: 6.0.6002.18488 (rd_rdfe_stable.120628-0756) Microsoft-HTTPAPI/2.0
+x-ms-request-id: 83baef86559844fdbf07b6ce8bd7f510
+Date: Fri, 29 Jun 2012 09:09:06 GMT
+
+<Error xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><Code>ResourceNotFound</Code><Message>The requested storage account was not found.</Message>
