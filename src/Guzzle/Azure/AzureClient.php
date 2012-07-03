@@ -12,18 +12,19 @@ use Guzzle\Service\Inspector;
 use Guzzle\Service\Description\ServiceDescription;
 
 /**
- * Client for interacting with Azure
+ * Client for interacting with Azure Managment API
  *
  * @author Gordon Franke <info@nevalon.de>
  */
 class AzureClient extends Client
 {
     /**
-     * Factory method to create a new ForumClient
+     * Factory method to create a new AzureClient
      *
      * @param array|Collection $config Configuration data. Array keys:
      *    base_url        - Base URL of web service
      *    subscription_id - azure subscription id
+     *    key_path        - certificate key path
      *
      * @return ForumClient
      */
@@ -55,7 +56,7 @@ class AzureClient extends Client
         });
         $client->getEventDispatcher()->addListener('client.create_request', function(Event $event) {
             $event['request']->getCurlOptions()
-                ->set(CURLOPT_SSLCERT, __DIR__ . '/../../../'.$event['client']->key_path);
+                ->set(CURLOPT_SSLCERT, __DIR__ . '/../../../'.$event['client']->keyPath);
         });
 
         return $client;
@@ -66,12 +67,13 @@ class AzureClient extends Client
      *
      * @param string $baseUrl        Base URL of the web service
      * @param string $subscriptionId Azure subscription id
+     * @param string $keyPath        Certificate key path
      */
-    public function __construct($baseUrl, $subscriptionId, $key_path)
+    public function __construct($baseUrl, $subscriptionId, $keyPath)
     {
         parent::__construct($baseUrl);
 
         $this->subscriptionId = $subscriptionId;
-        $this->key_path = $key_path;
+        $this->keyPath = $keyPath;
     }
 }
