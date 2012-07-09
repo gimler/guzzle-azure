@@ -7,7 +7,6 @@
 namespace Guzzle\Azure\Storage;
 
 use Guzzle\Common\Event;
-use Guzzle\Http\Message\EntityEnclosingRequestInterface;
 use Guzzle\Service\Client;
 use Guzzle\Service\Inspector;
 use Guzzle\Service\Description\ServiceDescription;
@@ -47,7 +46,7 @@ class StorageClient extends Client
         $description = ServiceDescription::factory(__DIR__ . DIRECTORY_SEPARATOR . 'client.xml');
         $client->setDescription($description);
 
-        $client->getEventDispatcher()->addListener('request.before_send', function(Event $event) use ($client){
+        $client->getEventDispatcher()->addListener('request.before_send', function(Event $event) use ($client) {
             $request = $event['request'];
             // fix squid does not support Expect 100
             $request->removeHeader('Expect');
