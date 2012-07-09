@@ -16,6 +16,8 @@
 			<param name="container" type="regex:/^[a-z]+$/" required="true" />
 			<param name="restype" type="string" required="true" location="query" static="container"/>
 
+			<param name="public_access" type="enum:container,blob" location="header:x-ms-blob-public-access" />
+
 			<param name="timeout" type="integer" required="false" location="query" />
 		</command>
                 <command name="blob.container.delete" method="DELETE" uri="{container}">
