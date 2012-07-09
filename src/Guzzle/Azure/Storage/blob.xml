@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<client>
+	<commands>
+		<command name="blob.list" method="GET" uri="{container}">
+			<doc>The List Blobs operation enumerates the list of blobs under the specified container.</doc>
+			<param name="container" type="regex:/^[a-z]+$/" required="true" />
+			<param name="comp" type="string" required="true" location="query" static="list"/>
+			<param name="restype" type="string" required="true" location="query" static="container"/>
+
+			<param name="prefix" type="string" required="false" location="query" />
+			<param name="delimiter" type="string" required="false" location="query" />
+			<param name="marker" type="integer" required="false" location="query" />
+			<param name="maxresults" type="integer" required="false" location="query" />
+			<param name="include" type="enum:snapshots,metadata,uncommittedblobs,copy" required="false" location="query" />
+			<param name="timeout" type="integer" required="false" location="query" />
+		</command>
+	</commands>
+</client>
