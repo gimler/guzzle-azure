@@ -3,7 +3,9 @@
 	<commands>
 		<command name="blob.list" method="GET" uri="{container}">
 			<doc>The List Blobs operation enumerates the list of blobs under the specified container.</doc>
+
 			<param name="container" type="regex:/^[a-z]+$/" required="true" />
+
 			<param name="comp" type="string" required="true" location="query" static="list"/>
 			<param name="restype" type="string" required="true" location="query" static="container"/>
 
@@ -12,6 +14,26 @@
 			<param name="marker" type="integer" required="false" location="query" />
 			<param name="maxresults" type="integer" required="false" location="query" />
 			<param name="include" type="enum:snapshots,metadata,uncommittedblobs,copy" required="false" location="query" />
+			<param name="timeout" type="integer" required="false" location="query" />
+		</command>
+		<command name="blob.put" method="PUT" uri="{container}/{blob}">
+			<doc>The Put Blob operation creates a new block blob or page blob, or updates the content of an existing block blob.</doc>
+
+			<param name="blob_type" type="enum:BlockBlob,PageBlob" location="header:x-ms-blob-type" />
+
+			<param name="container" type="regex:/^[a-z]+$/" required="true" />
+			<param name="blob" type="string" required="true" />
+
+			<param name="timeout" type="integer" required="false" location="query" />
+
+			<param name="data" location="body" requied="true" />
+		</command>
+		<command name="blob.delete" method="DELETE" uri="{container}/{blob}">
+			<doc>The Delete Blob operation marks the specified blob or snapshot for deletion. The blob is later deleted during garbage collection.</doc>
+
+			<param name="container" type="regex:/^[a-z]+$/" required="true" />
+			<param name="blob" type="string" required="true" />
+
 			<param name="timeout" type="integer" required="false" location="query" />
 		</command>
 	</commands>

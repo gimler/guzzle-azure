@@ -3,6 +3,7 @@
 	<commands>
 		<command name="blob.container.list" method="GET">
 			<doc>The List Containers operation returns a list of the containers under the specified account.</doc>
+
 			<param name="comp" type="string" required="true" location="query" static="list"/>
 
 			<param name="prefix" type="string" required="false" location="query" />
@@ -13,6 +14,7 @@
 		</command>
 		<command name="blob.container.create" method="PUT" uri="{container}">
 			<doc>The Create Container operation creates a new container under the specified account.</doc>
+
 			<param name="container" type="regex:/^[a-z]+$/" required="true" />
 			<param name="restype" type="string" required="true" location="query" static="container"/>
 
@@ -22,6 +24,7 @@
 		</command>
                 <command name="blob.container.delete" method="DELETE" uri="{container}">
                         <doc>The Delete Container operation marks the specified container for deletion.</doc>
+
                         <param name="container" type="regex:/^[a-z]+$/" required="true" />
 			<param name="restype" type="string" required="true" location="query" static="container"/>
 
