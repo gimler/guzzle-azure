@@ -56,7 +56,7 @@ class AzureClient extends Client
         });
         $client->getEventDispatcher()->addListener('client.create_request', function(Event $event) {
             $event['request']->getCurlOptions()
-                ->set(CURLOPT_SSLCERT, __DIR__ . '/../../../'.$event['client']->keyPath);
+                ->set(CURLOPT_SSLCERT, $event['client']->keyPath);
         });
 
         return $client;
