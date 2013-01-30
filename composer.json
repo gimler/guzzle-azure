@@ -18,6 +18,10 @@
         "php": ">=5.3.2",
         "guzzle/guzzle": "2.8.*"
     },
+    "require-dev": {
+        "icecave/testing": "dev-master",
+        "icecave/woodhouse": "*"
+    }
     "autoload": {
         "psr-0": {
             "Guzzle\\Azure": "src/"
