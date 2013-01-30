@@ -20,8 +20,8 @@
     },
     "require-dev": {
         "icecave/testing": "dev-master",
-        "icecave/woodhouse": "*"
-    }
+        "icecave/woodhouse": "dev-master"
+    },
     "autoload": {
         "psr-0": {
             "Guzzle\\Azure": "src/"
