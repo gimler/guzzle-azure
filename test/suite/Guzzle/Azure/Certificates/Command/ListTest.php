@@ -12,7 +12,7 @@ namespace Guzzle\Azure\Tests\Certificates\Command;
 class ListTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Azure\Certificates\Command\List
+     * This covers certificates.list
      */
     public function testList()
     {

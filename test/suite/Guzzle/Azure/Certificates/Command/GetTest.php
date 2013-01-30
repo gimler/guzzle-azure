@@ -12,7 +12,7 @@ namespace Guzzle\Azure\Tests\Certificates\Command;
 class GetTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Azure\Command\Get
+     * This covers certificates.get
      */
     public function testGet()
     {
@@ -27,7 +27,7 @@ class GetTest extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Azure\Command\Det
+     * This covers certificates.get
      * @expectedException Guzzle\Http\Exception\ClientErrorResponseException
      */
     public function testGetNotFound()

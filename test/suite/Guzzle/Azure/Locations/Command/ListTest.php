@@ -12,7 +12,7 @@ namespace Guzzle\Azure\Tests\Locations\Command;
 class ListTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Azure\Locations\Command\List
+     * This covers locations.list
      */
     public function testList()
     {

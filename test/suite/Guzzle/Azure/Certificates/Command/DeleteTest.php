@@ -12,7 +12,7 @@ namespace Guzzle\Azure\Tests\Certificates\Command;
 class DeleteTest extends \Guzzle\Tests\GuzzleTestCase
 {
     /**
-     * @covers Guzzle\Azure\Command\Delete
+     * This covers certificates.delete
      */
     public function testDelete()
     {
@@ -30,7 +30,7 @@ class DeleteTest extends \Guzzle\Tests\GuzzleTestCase
     }
 
     /**
-     * @covers Guzzle\Azure\Command\Delete
+     * This covers certificates.delete
      * @expectedException Guzzle\Http\Exception\ClientErrorResponseException
      */
     public function testDeleteNotFound()
