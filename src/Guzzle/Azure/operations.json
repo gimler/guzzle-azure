@@ -1,0 +1,16 @@
+{
+    "operations": {
+        "operations.get": {
+            "httpMethod": "GET",
+            "uri": "operations/{request_id}",
+            "summary": "The Get Operation Status operation returns the status of the specified operation. After calling an asynchronous operation, you can call Get Operation Status to determine whether the operation has succeeded, failed, or is still in progress.",
+            "parameters": {
+                "request_id": {
+                    "location": "uri",
+                    "type": "string",
+                    "required": true
+                }
+            }
+        }
+    }
+}

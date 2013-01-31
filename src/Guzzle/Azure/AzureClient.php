@@ -8,7 +8,7 @@ namespace Guzzle\Azure;
 
 use Guzzle\Service\Client;
 use Guzzle\Common\Event;
-use Guzzle\Service\Inspector;
+use Guzzle\Common\Collection;
 use Guzzle\Service\Description\ServiceDescription;
 
 /**
@@ -34,7 +34,7 @@ class AzureClient extends Client
             'base_url' => 'https://management.core.windows.net/{subscription_id}/'
         );
         $required = array('base_url', 'subscription_id', 'key_path');
-        $config = Inspector::prepareConfig($config, $default, $required);
+        $config = Collection::fromConfig($config, $default, $required);
 
         $client = new self(
             $config->get('base_url'),
@@ -46,7 +46,7 @@ class AzureClient extends Client
 //TODO: key_path file_exists and readable check
 //TODO: key_path relative vs. absolute paths
 
-        $description = ServiceDescription::factory(__DIR__ . DIRECTORY_SEPARATOR . 'client.xml');
+        $description = ServiceDescription::factory(__DIR__ . DIRECTORY_SEPARATOR . 'client.json');
         $client->setDescription($description);
 
         // fix squid does not support Expect 100

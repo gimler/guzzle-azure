@@ -16,7 +16,7 @@
     ],
     "require": {
         "php": ">=5.3.2",
-        "guzzle/guzzle": "2.8.*"
+        "guzzle/guzzle": "3.1.*"
     },
     "require-dev": {
         "icecave/testing": "dev-master",

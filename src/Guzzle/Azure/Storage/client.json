@@ -1,0 +1,7 @@
+{
+    "name": "guzzle-azure",
+    "includes": [
+        "blob.json",
+        "blob.container.json"
+    ]
+}

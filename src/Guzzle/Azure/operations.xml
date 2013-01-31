@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<client>
-	<commands>
-		<command name="operations.get" method="GET" uri="operations/{request_id}">
-			<doc>The Get Operation Status operation returns the status of the specified operation. After calling an asynchronous operation, you can call Get Operation Status to determine whether the operation has succeeded, failed, or is still in progress.</doc>
-			<param name="request_id" type="string" required="true" />
-		</command>
-	</commands>
-</client>

@@ -1,0 +1,33 @@
+{
+    "operations": {
+        "certificates.list": {
+            "httpMethod": "GET",
+            "uri": "certificates",
+            "summary": "Lists and returns basic information about all of the management certificates associated with the specified subscription."
+        },
+        "certificates.get": {
+            "httpMethod": "GET",
+            "uri": "certificates/{thumbprint}",
+            "summary": "Gets information about the management certificate with the specified thumbprint.",
+            "parameters": {
+                "thumbprint": {
+                    "location": "uri",
+                    "type": "string",
+                    "required": true
+                }
+            }
+        },
+        "certificates.delete": {
+            "httpMethod": "DELETE",
+            "uri": "certificates/{thumbprint}",
+            "summary": "Deletes a certificate from the list of management certificates.",
+            "parameters": {
+                "thumbprint": {
+                    "location": "uri",
+                    "type": "string",
+                    "required": true
+                }
+            }
+        }
+    }
+}

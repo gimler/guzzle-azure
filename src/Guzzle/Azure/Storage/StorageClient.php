@@ -8,7 +8,7 @@ namespace Guzzle\Azure\Storage;
 
 use Guzzle\Common\Event;
 use Guzzle\Service\Client;
-use Guzzle\Service\Inspector;
+use Guzzle\Common\Collection;
 use Guzzle\Service\Description\ServiceDescription;
 
 /**
@@ -34,7 +34,7 @@ class StorageClient extends Client
             'base_url' => 'https://{account_name}.blob.core.windows.net/'
         );
         $required = array('base_url', 'account_name', 'account_key');
-        $config = Inspector::prepareConfig($config, $default, $required);
+        $config = Collection::fromConfig($config, $default, $required);
 
         $client = new self(
             $config->get('base_url'),
@@ -43,7 +43,7 @@ class StorageClient extends Client
         );
         $client->setConfig($config);
 
-        $description = ServiceDescription::factory(__DIR__ . DIRECTORY_SEPARATOR . 'client.xml');
+        $description = ServiceDescription::factory(__DIR__ . DIRECTORY_SEPARATOR . 'client.json');
         $client->setDescription($description);
 
         $client->getEventDispatcher()->addListener('request.before_send', function(Event $event) use ($client) {
