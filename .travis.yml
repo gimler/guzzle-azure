@@ -1,20 +1,17 @@
 language: php
 
-php:
-  - 5.5
-  - 5.6
-  - 7.0
-  - hhvm
+sudo: false
 
 matrix:
-  include:
-    - php: 5.5
-      env:
-        - secure: "OAxyl/6BAv5UoBvB3FXtmqmiBP1NMLpcsJYYHQE9AQ76XYVVE/g33g2K65uH\nO8sQK0luEL6fp+2GoP5BU1oUUN4K9zt11O1Xc8f1WWXxTg8vXtDjjlAYFQy7\nS5YjJFkk71ixq59M3G1m/WYGuMZ3iF7vCg64ypL09Ky07Gy5icY="
-  allow_failures:
-    - php: hhvm
-    - php: 7
-  fast_finish: true
+    include:
+        - php: hhvm
+        - php: 5.4
+        - php: 5.5
+        - php: 5.6
+        - php: 7
+    allow_failures:
+        - php: 7
+    fast_finish: true
 
 install: composer install --dev --prefer-source
-script:  ./vendor/bin/travis-build
+script:  phpunit
