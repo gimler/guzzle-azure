@@ -19,4 +19,10 @@ If you are using Composer, and you should, just reference the plugin in your com
 }
 ```
 
+## create cert
 
+Create self-signed certificate (see [https://www.openssl.org/docs/apps/req.html])
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout pazure2.pem -out pazure2.pem
+
+(see [https://www.openssl.org/docs/apps/x509.html])
+openssl x509 -outform der -in pazure2.pem -out pazure2.cer

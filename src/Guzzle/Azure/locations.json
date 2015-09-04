@@ -1,9 +1,0 @@
-{
-    "operations": {
-        "locations.list": {
-            "httpMethod": "GET",
-            "uri": "locations",
-            "summary": "The List Locations operation lists all of the data center locations that are valid for your subscription."
-        }
-    }
-}

@@ -15,16 +15,28 @@
         }
     ],
     "require": {
-        "php": ">=5.3.2",
-        "guzzle/guzzle": "3.1.*"
+        "php": ">=5.5.0",
+        "guzzlehttp/guzzle": "5.3.0",
+        "guzzlehttp/guzzle-services": "0.5.0",
+        "webbj74/jsdl-loader": "dev-master"
     },
     "require-dev": {
-        "icecave/testing": "dev-master",
         "icecave/woodhouse": "dev-master"
     },
-    "autoload": {
-        "psr-0": {
-            "Guzzle\\Azure": "src/"
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/webbj74/jsdl-loader"
         }
+    ],
+  "autoload": {
+    "psr-0": {
+      "Guzzle\\Azure": "src/"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Guzzle\\Azure\\Tests\\": "tests/"
+    }
+  }
 }

@@ -1,0 +1,11 @@
+HTTP/1.1 400 Bad Request
+Cache-Control: no-cache
+Content-Length: 198
+Content-Type: application/xml; charset=utf-8
+Server: 1.0.6198.239 (rd_rdfe_stable.150604-1401) Microsoft-HTTPAPI/2.0
+x-ms-servedbyregion: ussouth3
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+x-ms-request-id: 9a5d339ac318a51fbbc7a2fc40f8ef8c
+Date: Tue, 09 Jun 2015 12:58:18 GMT
+
+<Error xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><Code>BadRequest</Code><Message>The operation request ID was not found.</Message></Error>

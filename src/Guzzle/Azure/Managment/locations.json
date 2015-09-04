@@ -1,0 +1,21 @@
+{
+  "operations": {
+    "locations.list": {
+      "httpMethod": "GET",
+      "uri": "locations",
+      "description": "The List Locations operation lists all of the data center locations that are valid for your subscription.",
+      "responseModel": "LocationList"
+    }
+  },
+  "models": {
+    "LocationList": {
+      "type": "array",
+      "name": "locations",
+      "sentAs": "Location",
+      "location": "xml",
+      "items": {
+        "type": "object"
+      }
+    }
+  }
+}

@@ -1,9 +1,0 @@
-<?xml version="1.0" ?>
-<guzzle>
-	<clients>
-		<client name="azure" class="Guzzle.Azure.AzureClient">
-			<param name="subscription_id" value="my-subscription-id" />
-                        <param name="cert_path" value="my.pem" />
-		</client>
-	</clients>
-</guzzle>

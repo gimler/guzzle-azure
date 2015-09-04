@@ -1,0 +1,11 @@
+HTTP/1.1 409 Conflict
+Cache-Control: no-cache
+Content-Length: 225
+Content-Type: application/xml; charset=utf-8
+Server: 1.0.6198.239 (rd_rdfe_stable.150604-1401) Microsoft-HTTPAPI/2.0
+x-ms-servedbyregion: ussouth3
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+x-ms-request-id: 014c96c2e19aa3d79978d3d9179f1166
+Date: Tue, 09 Jun 2015 12:35:17 GMT
+
+<Error xmlns="http://schemas.microsoft.com/windowsazure" xmlns:i="http://www.w3.org/2001/XMLSchema-instance"><Code>ConflictError</Code><Message>The specified certificate already exists for this subscription.</Message></Error>

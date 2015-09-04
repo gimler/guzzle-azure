@@ -1,0 +1,87 @@
+{
+  "operations": {
+    "certificates.list": {
+      "httpMethod": "GET",
+      "uri": "certificates",
+      "description": "Lists and returns basic information about all of the management certificates associated with the specified subscription.",
+      "responseModel": "CertificateList"
+    },
+    "certificates.add": {
+      "httpMethod": "POST",
+      "uri": "certificates",
+      "description": "The Add Management Certificate operation adds a management certificate to the specified subscription.",
+      "data": {
+        "xmlEncoding": "utf-8",
+        "xmlRoot": {
+          "name": "SubscriptionCertificate",
+          "namespaces": [
+            "http://schemas.microsoft.com/windowsazure"
+          ]
+        }
+      },
+      "parameters": {
+        "publicKey": {
+          "type": "string",
+          "location": "xml",
+          "sentAs": "SubscriptionCertificatePublicKey",
+          "required": true
+        },
+        "thumbprint": {
+          "type": "string",
+          "location": "xml",
+          "sentAs": "SubscriptionCertificateThumbprint",
+          "required": true
+        },
+        "data": {
+          "type": "string",
+          "location": "xml",
+          "sentAs": "SubscriptionCertificateData",
+          "required": true
+        }
+      }
+    },
+    "certificates.get": {
+      "httpMethod": "GET",
+      "uri": "certificates/{thumbprint}",
+      "description": "Gets information about the management certificate with the specified thumbprint.",
+      "responseModel": "Certificate",
+      "parameters": {
+        "thumbprint": {
+          "type": "string",
+          "location": "uri",
+          "required": true
+        }
+      }
+    },
+    "certificates.delete": {
+      "httpMethod": "DELETE",
+      "uri": "certificates/{thumbprint}",
+      "description": "Deletes a certificate from the list of management certificates.",
+      "responseModel": "Certificate",
+      "parameters": {
+        "thumbprint": {
+          "type": "string",
+          "location": "uri",
+          "required": true
+        }
+      }
+    }
+  },
+  "models": {
+    "CertificateList": {
+      "type": "array",
+      "name": "certificates",
+      "sentAs": "SubscriptionCertificate",
+      "location": "xml",
+      "items": {
+        "type": "object"
+      }
+    },
+    "Certificate": {
+      "type": "object",
+      "additionalProperties": {
+        "location": "xml"
+      }
+    }
+  }
+}

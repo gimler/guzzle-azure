@@ -1,0 +1,10 @@
+{
+  "name": "guzzle-azure",
+  "includes": [
+    "Certificates/certificates.json",
+    "locations.json",
+    "operations.json",
+    "Services/storage.json",
+    "Services/hosted.json"
+  ]
+}

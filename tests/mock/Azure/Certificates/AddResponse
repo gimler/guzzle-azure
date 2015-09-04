@@ -1,0 +1,9 @@
+HTTP/1.1 201 Created
+Cache-Control: no-cache
+Content-Length: 0
+Location: https://management.core.windows.net/subscriptions/a6c26c09-324b-41ea-aecb-00807a60be8a/certificates/677998bb2754f26e89919fd6fdbc4901f1b54d03
+Server: 1.0.6198.239 (rd_rdfe_stable.150604-1401) Microsoft-HTTPAPI/2.0
+x-ms-servedbyregion: ussouth3
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+x-ms-request-id: c0898c17ddbba261aa7e6416e35cf818
+Date: Tue, 09 Jun 2015 12:08:32 GMT
