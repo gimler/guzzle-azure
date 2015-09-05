@@ -1,113 +1,127 @@
 {
-    "operations": {
-        "blob.list": {
-            "httpMethod": "GET",
-            "uri": "{container}",
-            "summary": "The List Blobs operation enumerates the list of blobs under the specified container.",
-            "parameters": {
-                "container": {
-                    "location": "uri",
-                    "type": "regex:/^[a-z]+$/",
-                    "required": true
-                },
-                "comp": {
-                    "location": "query",
-                    "type": "string",
-                    "required": true,
-                    "static": true,
-                    "default": "list"
-                },
-                "restype": {
-                    "location": "query",
-                    "type": "string",
-                    "required": true,
-                    "static": true,
-                    "default": "container"
-                },
-                "prefix": {
-                    "location": "query",
-                    "type": "string",
-                    "required": false
-                },
-                "delimiter": {
-                    "location": "query",
-                    "type": "string",
-                    "required": false
-                },
-                "marker": {
-                    "location": "query",
-                    "type": "integer",
-                    "required": false
-                },
-                "maxresults": {
-                    "location": "query",
-                    "type": "integer",
-                    "required": false
-                },
-                "include": {
-                    "location": "query",
-                    "type": "enum:snapshots,metadata,uncommittedblobs,copy",
-                    "required": false
-                },
-                "timeout": {
-                    "location": "query",
-                    "type": "integer",
-                    "required": false
-                }
-            }
+  "operations": {
+    "blob.list": {
+      "httpMethod": "GET",
+      "uri": "{container}",
+      "summary": "The List Blobs operation enumerates the list of blobs under the specified container.",
+      "parameters": {
+        "container": {
+          "location": "uri",
+          "type": "string",
+          "pattern": "/^[a-z]+$/",
+          "required": true
         },
-        "blob.put": {
-            "httpMethod": "PUT",
-            "uri": "{container}/{blob}",
-            "summary": "The Put Blob operation creates a new block blob or page blob, or updates the content of an existing block blob.",
-            "parameters": {
-                "blob_type": {
-                    "type": "enum:BlockBlob,PageBlob",
-                    "location": "header:x-ms-blob-type"
-                },
-                "container": {
-                    "location": "uri",
-                    "type": "regex:/^[a-z]+$/",
-                    "required": true
-                },
-                "blob": {
-                    "location": "uri",
-                    "type": "string",
-                    "required": true
-                },
-                "timeout": {
-                    "location": "query",
-                    "type": "integer",
-                    "required": false
-                },
-                "data": {
-                    "location": "body",
-                    "type": "string",
-                    "required": true
-                }
-            }
+        "comp": {
+          "location": "query",
+          "type": "string",
+          "required": true,
+          "static": true,
+          "default": "list"
         },
-        "blob.delete": {
-            "httpMethod": "DELETE",
-            "uri": "{container}/{blob}",
-            "summary": "The Delete Blob operation marks the specified blob or snapshot for deletion. The blob is later deleted during garbage collection.",
-            "parameters": {
-                "container": {
-                    "location": "uri",
-                    "type": "regex:/^[a-z]+$/",
-                    "required": true
-                },
-                "blob": {
-                    "location": "uri",
-                    "type": "string",
-                    "required": true
-                },
-                "timeout": {
-                    "location": "query",
-                    "type": "integer",
-                    "required": false
-                }
-            }
+        "restype": {
+          "location": "query",
+          "type": "string",
+          "required": true,
+          "static": true,
+          "default": "container"
+        },
+        "prefix": {
+          "location": "query",
+          "type": "string",
+          "required": false
+        },
+        "delimiter": {
+          "location": "query",
+          "type": "string",
+          "required": false
+        },
+        "marker": {
+          "location": "query",
+          "type": "integer",
+          "required": false
+        },
+        "maxresults": {
+          "location": "query",
+          "type": "integer",
+          "required": false
+        },
+        "include": {
+          "location": "query",
+          "type": "string",
+          "enum": [
+            "snapshots",
+            "metadata",
+            "uncommittedblobs",
+            "copy"
+          ],
+          "required": false
+        },
+        "timeout": {
+          "location": "query",
+          "type": "integer",
+          "required": false
         }
+      }
+    },
+    "blob.put": {
+      "httpMethod": "PUT",
+      "uri": "{container}/{blob}",
+      "summary": "The Put Blob operation creates a new block blob or page blob, or updates the content of an existing block blob.",
+      "parameters": {
+        "blob_type": {
+          "type": "string",
+          "enum": [
+            "BlockBlob",
+            "PageBlob"
+          ],
+          "location": "header",
+          "sentAs": "x-ms-blob-type"
+        },
+        "container": {
+          "location": "uri",
+          "type": "string",
+          "pattern": "/^[a-z]+$/",
+          "required": true
+        },
+        "blob": {
+          "location": "uri",
+          "type": "string",
+          "required": true
+        },
+        "timeout": {
+          "location": "query",
+          "type": "integer",
+          "required": false
+        },
+        "data": {
+          "location": "body",
+          "type": "string",
+          "required": true
+        }
+      }
+    },
+    "blob.delete": {
+      "httpMethod": "DELETE",
+      "uri": "{container}/{blob}",
+      "summary": "The Delete Blob operation marks the specified blob or snapshot for deletion. The blob is later deleted during garbage collection.",
+      "parameters": {
+        "container": {
+          "location": "uri",
+          "type": "string",
+          "pattern": "/^[a-z]+$/",
+          "required": true
+        },
+        "blob": {
+          "location": "uri",
+          "type": "string",
+          "required": true
+        },
+        "timeout": {
+          "location": "query",
+          "type": "integer",
+          "required": false
+        }
+      }
     }
+  }
 }

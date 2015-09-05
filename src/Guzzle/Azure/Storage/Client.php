@@ -6,17 +6,19 @@
 
 namespace Guzzle\Azure\Storage;
 
-use Guzzle\Common\Event;
-use Guzzle\Service\Client;
-use Guzzle\Common\Collection;
-use Guzzle\Service\Description\ServiceDescription;
+use GuzzleHttp\Command\Guzzle\GuzzleClient;
+use GuzzleHttp\Client as GuzzleHttpClient;
+use GuzzleHttp\Collection;
+use GuzzleHttp\Command\Guzzle\Description;
+use Webbj74\JSDL\Loader\ServiceDescriptionLoader;
+use GuzzleHttp\Event\BeforeEvent;
 
 /**
  * Client for interacting with Azure Storage API
  *
  * @author Gordon Franke <info@nevalon.de>
  */
-class StorageClient extends Client
+class Client extends GuzzleClient
 {
     /**
      * Factory method to create a new StorageClient
@@ -31,27 +33,45 @@ class StorageClient extends Client
     public static function factory($config = array())
     {
         $default = array(
-            'base_url' => 'https://{account_name}.blob.core.windows.net/'
+            'base_uri' => 'https://{account_name}.blob.core.windows.net/'
         );
-        $required = array('base_url', 'account_name', 'account_key');
+        $required = array('base_uri', 'account_name', 'account_key');
         $config = Collection::fromConfig($config, $default, $required);
 
         $client = new self(
-            $config->get('base_url'),
+            $config->get('base_uri'),
             $config->get('account_name'),
             $config->get('account_key')
         );
-        $client->setConfig($config);
 
-        $description = ServiceDescription::factory(__DIR__ . DIRECTORY_SEPARATOR . 'client.json');
-        $client->setDescription($description);
+        return $client;
+    }
 
-        $client->getEventDispatcher()->addListener('request.before_send', function(Event $event) use ($client) {
-            $request = $event['request'];
-            // fix squid does not support Expect 100
-            $request->removeHeader('Expect');
-            $request->addHeader('x-ms-version', '2009-09-19');
-            $request->addHeader('Date', gmdate('D, d M Y H:i:s T', time()));
+    /**
+     * Client constructor
+     *
+     * @param string $baseUrl     Base URL of the web service
+     * @param string $accountName Azure storage account name
+     * @param string $aacountKey  Azure storage account key
+     */
+    public function __construct($baseUrl, $accountName, $accountKey)
+    {
+        $client = new GuzzleHttpClient(array(
+            'base_url' => [
+                $baseUrl,
+                ['account_name' => $accountName]
+            ],
+            'defaults' => [
+                'headers' => array(
+                    'x-ms-version' => '2015-02-21',
+                    'Date' => gmdate('D, d M Y H:i:s T', time())
+                ),
+            ]
+        ));
+
+        $emitter = $client->getEmitter();
+        $emitter->on('before', function (BeforeEvent $event, $name) use ($accountName, $accountKey) {
+            $request = $event->getRequest();
 
             // compute signature
             $sign = $request->getMethod() . "\n";
@@ -75,9 +95,9 @@ class StorageClient extends Client
             $sign .= implode("\n", $canonicalizedHeaders) . "\n";
 
             // canonicalized resource
-            $canonicalizedResource = '/'. $client->accountName . $request->getPath();
+            $canonicalizedResource = '/'. $accountName . $request->getPath();
 
-            $params = $request->getQuery()->getAll();
+            $params = $request->getQuery()->toArray();
             ksort($params);
 
             foreach ($params as $key => $value) {
@@ -91,26 +111,14 @@ class StorageClient extends Client
             $sign .= $canonicalizedResource;
 
             // hash sign
-            $signature = base64_encode(hash_hmac('sha256', $sign, base64_decode($client->accountKey), true));
+            $signature = base64_encode(hash_hmac('sha256', $sign, base64_decode($accountKey), true));
 
-            $event['request']->addHeader('Authorization', sprintf('SharedKey %s:%s', $client->accountName, $signature));
+            $request->addHeader('Authorization', sprintf('SharedKey %s:%s', $accountName, $signature));
         });
 
-        return $client;
-    }
+        $jsdlLoader = new ServiceDescriptionLoader();
+        $description = new Description($jsdlLoader->load(__DIR__ . DIRECTORY_SEPARATOR . 'client.json'));
 
-    /**
-     * Client constructor
-     *
-     * @param string $baseUrl     Base URL of the web service
-     * @param string $accountName Azure storage account name
-     * @param string $aacountKey  Azure storage account key
-     */
-    public function __construct($baseUrl, $accountName, $accountKey)
-    {
-        parent::__construct($baseUrl);
-
-        $this->accountName = $accountName;
-        $this->accountKey = $accountKey;
+        parent::__construct($client, $description, []);
     }
 }

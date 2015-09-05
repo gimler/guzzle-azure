@@ -1,98 +1,111 @@
 {
-    "operations": {
-        "blob.container.list": {
-            "httpMethod": "GET",
-            "uri": "",
-            "summary": "The List Containers operation returns a list of the containers under the specified account.",
-            "parameters": {
-                "comp": {
-                    "location": "query",
-                    "type": "string",
-                    "required": true,
-                    "static": true,
-                    "default": "list"
-                },
-                "prefix": {
-                    "location": "query",
-                    "type": "string",
-                    "required": false
-                },
-                "marker": {
-                    "location": "query",
-                    "type": "integer",
-                    "required": false
-                },
-                "maxresults": {
-                    "location": "query",
-                    "type": "integer",
-                    "required": false
-                },
-                "include": {
-                    "location": "query",
-                    "type": "string",
-                    "required": false,
-                    "static": true,
-                    "default": "metadata"
-                },
-                "timeout": {
-                    "location": "query",
-                    "type": "integer",
-                    "required": false
-                }
-            }
+  "operations": {
+    "blob.container.list": {
+      "httpMethod": "GET",
+      "uri": "",
+      "summary": "The List Containers operation returns a list of the containers under the specified account.",
+      "parameters": {
+        "comp": {
+          "location": "query",
+          "type": "string",
+          "required": true,
+          "static": true,
+          "default": "list"
         },
-        "blob.container.create": {
-            "httpMethod": "PUT",
-            "uri": "{container}",
-            "summary": "The Create Container operation creates a new container under the specified account.",
-            "parameters": {
-                "container": {
-                    "location": "uri",
-                    "type": "regex:/^[a-z]+$/",
-                    "required": true
-                },
-                "restype": {
-                    "location": "query",
-                    "type": "string",
-                    "required": true,
-                    "static": true,
-                    "default": "container"
-                },
-                "public_access": {
-                    "location": "header:x-ms-blob-public-access",
-                    "type": "enum:container,blob",
-                    "required": true
-                },
-                "timeout": {
-                    "location": "query",
-                    "type": "integer",
-                    "required": false
-                }
-            }
+        "prefix": {
+          "location": "query",
+          "type": "string",
+          "required": false
         },
-        "blob.container.delete": {
-            "httpMethod": "DELETE",
-            "uri": "{container}",
-            "summary": "The Delete Container operation marks the specified container for deletion.",
-            "parameters": {
-                "container": {
-                    "location": "uri",
-                    "type": "regex:/^[a-z]+$/",
-                    "required": true
-                },
-                "restype": {
-                    "location": "query",
-                    "type": "string",
-                    "required": true,
-                    "static": true,
-                    "default": "container"
-                },
-                "timeout": {
-                    "location": "query",
-                    "type": "integer",
-                    "required": false
-                }
-            }
+        "marker": {
+          "location": "query",
+          "type": "integer",
+          "required": false
+        },
+        "maxresults": {
+          "location": "query",
+          "type": "integer",
+          "required": false
+        },
+        "include": {
+          "location": "query",
+          "type": "string",
+          "required": false,
+          "static": true,
+          "default": "metadata"
+        },
+        "timeout": {
+          "location": "query",
+          "type": "integer",
+          "required": false
         }
+      }
+    },
+    "blob.container.create": {
+      "httpMethod": "PUT",
+      "uri": "{container}",
+      "summary": "The Create Container operation creates a new container under the specified account.",
+      "parameters": {
+        "container": {
+          "location": "uri",
+          "type": "string",
+          "pattern": "/^[a-z]+$/",
+          "required": true
+        },
+        "restype": {
+          "location": "query",
+          "type": "string",
+          "required": true,
+          "static": true,
+          "default": "container"
+        },
+        "public_access": {
+          "location": "header",
+          "sentAs": "x-ms-blob-public-access",
+          "type": "string",
+          "enum": [
+            "container",
+            "blob"
+          ],
+          "required": false
+        },
+        "request_id": {
+          "location": "header",
+          "sentAs": "x-ms-client-request-id",
+          "type": "string",
+          "required": false
+        },
+        "timeout": {
+          "location": "query",
+          "type": "integer",
+          "required": false
+        }
+      }
+    },
+    "blob.container.delete": {
+      "httpMethod": "DELETE",
+      "uri": "{container}",
+      "summary": "The Delete Container operation marks the specified container for deletion.",
+      "parameters": {
+        "container": {
+          "location": "uri",
+          "type": "string",
+          "pattern": "/^[a-z]+$/",
+          "required": true
+        },
+        "restype": {
+          "location": "query",
+          "type": "string",
+          "required": true,
+          "static": true,
+          "default": "container"
+        },
+        "timeout": {
+          "location": "query",
+          "type": "integer",
+          "required": false
+        }
+      }
     }
+  }
 }
