@@ -1,0 +1,11 @@
+HTTP/1.1 409 The specified container already exists.
+Content-Length: 230
+Content-Type: application/xml
+Server: Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
+x-ms-request-id: ab7ba876-0001-0025-3c9b-e99921000000
+x-ms-version: 2015-02-21
+Date: Mon, 07 Sep 2015 18:29:38 GMT
+
+<?xml version="1.0" encoding="utf-8"?><Error><Code>ContainerAlreadyExists</Code><Message>The specified container already exists.
+RequestId:ab7ba876-0001-0025-3c9b-e99921000000
+Time:2015-09-07T18:29:39.1791200Z</Message></Error>

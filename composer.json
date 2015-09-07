@@ -37,7 +37,7 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "Guzzle\\Azure\\Tests\\": "tests/"
+      "Guzzle\\Azure\\Tests\\": "tests/suite/Guzzle/Azure/"
     }
   }
 }

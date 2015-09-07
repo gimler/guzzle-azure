@@ -3,7 +3,8 @@
     "blob.container.list": {
       "httpMethod": "GET",
       "uri": "",
-      "summary": "The List Containers operation returns a list of the containers under the specified account.",
+      "description": "The List Containers operation returns a list of the containers under the specified account.",
+      "responseModel": "ContainerList",
       "parameters": {
         "comp": {
           "location": "query",
@@ -31,8 +32,8 @@
           "location": "query",
           "type": "string",
           "required": false,
-          "static": true,
-          "default": "metadata"
+          "type": "enum",
+          "enum": ["metadata"]
         },
         "timeout": {
           "location": "query",
@@ -44,7 +45,7 @@
     "blob.container.create": {
       "httpMethod": "PUT",
       "uri": "{container}",
-      "summary": "The Create Container operation creates a new container under the specified account.",
+      "description": "The Create Container operation creates a new container under the specified account.",
       "parameters": {
         "container": {
           "location": "uri",
@@ -85,7 +86,7 @@
     "blob.container.delete": {
       "httpMethod": "DELETE",
       "uri": "{container}",
-      "summary": "The Delete Container operation marks the specified container for deletion.",
+      "description": "The Delete Container operation marks the specified container for deletion.",
       "parameters": {
         "container": {
           "location": "uri",
@@ -105,6 +106,24 @@
           "type": "integer",
           "required": false
         }
+      }
+    }
+  },
+  "models": {
+    "ContainerList": {
+      "type": "array",
+      "name": "containers",
+      "sentAs": "Containers",
+      "location": "xml",
+      "items": {
+        "$ref": "Container"
+      }
+    },
+    "Container": {
+      "type": "object",
+      "sentAs": "Container",
+      "additionalProperties": {
+        "location": "xml"
       }
     }
   }

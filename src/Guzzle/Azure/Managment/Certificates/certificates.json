@@ -20,22 +20,19 @@
         }
       },
       "parameters": {
-        "publicKey": {
+        "SubscriptionCertificatePublicKey": {
           "type": "string",
           "location": "xml",
-          "sentAs": "SubscriptionCertificatePublicKey",
           "required": true
         },
-        "thumbprint": {
+        "SubscriptionCertificateThumbprint": {
           "type": "string",
           "location": "xml",
-          "sentAs": "SubscriptionCertificateThumbprint",
           "required": true
         },
-        "data": {
+        "SubscriptionCertificateData": {
           "type": "string",
           "location": "xml",
-          "sentAs": "SubscriptionCertificateData",
           "required": true
         }
       }
@@ -74,7 +71,7 @@
       "sentAs": "SubscriptionCertificate",
       "location": "xml",
       "items": {
-        "type": "object"
+        "$ref": "Certificate"
       }
     },
     "Certificate": {

@@ -1,0 +1,8 @@
+HTTP/1.1 201 Created
+Transfer-Encoding: chunked
+Last-Modified: Mon, 07 Sep 2015 18:31:44 GMT
+ETag: "0x8D2B7B294FE4888"
+Server: Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
+x-ms-request-id: 7dc8b581-0001-002b-349b-e9752a000000
+x-ms-version: 2015-02-21
+Date: Mon, 07 Sep 2015 18:31:44 GMT

@@ -6,7 +6,7 @@
 
 namespace Guzzle\Azure\Tests\Certificates\Command;
 
-use Guzzle\Azure\Tests\TestCase;
+use Guzzle\Azure\Tests\Managment\TestCase;
 
 use GuzzleHttp\Command\Exception\CommandClientException;
 
@@ -20,7 +20,7 @@ class GetTest extends TestCase
      */
     public function testGet()
     {
-        $response = file_get_contents(MOCK_BASE_PATH . '/Azure/Certificates/GetResponse');
+        $response = file_get_contents(MOCK_BASE_PATH . '/Azure/Managment/Certificates/GetResponse');
         self::$mock->addResponse($response);
 
         /** @var $command \GuzzleHttp\Command\Command */
@@ -39,7 +39,7 @@ class GetTest extends TestCase
      */
     public function testGetNotFound()
     {
-        $response = file_get_contents(MOCK_BASE_PATH . '/Azure/Certificates/GetNotFoundResponse');
+        $response = file_get_contents(MOCK_BASE_PATH . '/Azure/Managment/Certificates/GetNotFoundResponse');
         self::$mock->addResponse($response);
 
         /** @var $command \GuzzleHttp\Command\Command */

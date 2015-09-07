@@ -3,7 +3,7 @@
     "blob.list": {
       "httpMethod": "GET",
       "uri": "{container}",
-      "summary": "The List Blobs operation enumerates the list of blobs under the specified container.",
+      "description": "The List Blobs operation enumerates the list of blobs under the specified container.",
       "parameters": {
         "container": {
           "location": "uri",
@@ -66,7 +66,7 @@
     "blob.put": {
       "httpMethod": "PUT",
       "uri": "{container}/{blob}",
-      "summary": "The Put Blob operation creates a new block blob or page blob, or updates the content of an existing block blob.",
+      "description": "The Put Blob operation creates a new block blob or page blob, or updates the content of an existing block blob.",
       "parameters": {
         "blob_type": {
           "type": "string",
@@ -103,7 +103,7 @@
     "blob.delete": {
       "httpMethod": "DELETE",
       "uri": "{container}/{blob}",
-      "summary": "The Delete Blob operation marks the specified blob or snapshot for deletion. The blob is later deleted during garbage collection.",
+      "description": "The Delete Blob operation marks the specified blob or snapshot for deletion. The blob is later deleted during garbage collection.",
       "parameters": {
         "container": {
           "location": "uri",

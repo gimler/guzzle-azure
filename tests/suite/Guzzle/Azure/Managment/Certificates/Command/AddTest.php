@@ -4,10 +4,11 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Azure\Tests\Certificates\Command;
+namespace Guzzle\Azure\Tests\Managment\Certificates\Command;
 
 use Guzzle\Azure\Managment\Certificates\Certificate;
-use Guzzle\Azure\Tests\TestCase;
+
+use Guzzle\Azure\Tests\Managment\TestCase;
 
 use GuzzleHttp\Command\Exception\CommandClientException;
 
@@ -21,16 +22,16 @@ class AddTest extends TestCase
      */
     public function testAdd()
     {
-        $response = file_get_contents(MOCK_BASE_PATH . '/Azure/Certificates/AddResponse');
+        $response = file_get_contents(MOCK_BASE_PATH . '/Azure/Managment/Certificates/AddResponse');
         self::$mock->addResponse($response);
 
-        /** @var $command \GuzzleHttp\Command\Command */
         $data = new Certificate(FIXTURES_BASE_PATH . '/pazure.cer');
 
+        /** @var $command \GuzzleHttp\Command\Command */
         $command = self::$client->getCommand('certificates.add', array(
-            'publicKey' => $data->publicKey,
-            'thumbprint' => $data->thumbprint,
-            'data' => $data->data
+            'SubscriptionCertificatePublicKey' => $data->publicKey,
+            'SubscriptionCertificateThumbprint' => $data->thumbprint,
+            'SubscriptionCertificateData' => $data->data
         ));
 
         $result = self::$client->execute($command);
@@ -49,16 +50,16 @@ class AddTest extends TestCase
      */
     public function testAddAllreadyExist()
     {
-        $response = file_get_contents(MOCK_BASE_PATH . '/Azure/Certificates/AddAllreadyExistResponse');
+        $response = file_get_contents(MOCK_BASE_PATH . '/Azure/Managment/Certificates/AddAllreadyExistResponse');
         self::$mock->addResponse($response);
 
-        /** @var $command \GuzzleHttp\Command\Command */
         $data = new Certificate(FIXTURES_BASE_PATH . '/pazure.cer');
 
+        /** @var $command \GuzzleHttp\Command\Command */
         $command = self::$client->getCommand('certificates.add', array(
-            'publicKey' => $data->publicKey,
-            'thumbprint' => $data->thumbprint,
-            'data' => $data->data
+            'SubscriptionCertificatePublicKey' => $data->publicKey,
+            'SubscriptionCertificateThumbprint' => $data->thumbprint,
+            'SubscriptionCertificateData' => $data->data
         ));
 
         try {

@@ -6,7 +6,7 @@
 
 namespace Guzzle\Azure\Tests\Certificates\Command;
 
-use Guzzle\Azure\Tests\TestCase;
+use Guzzle\Azure\Tests\Managment\TestCase;
 
 /**
  * @author Gordon Franke <info@nevalon.de>
@@ -18,7 +18,7 @@ class ListTest extends TestCase
      */
     public function testList()
     {
-        $response = file_get_contents(MOCK_BASE_PATH . '/Azure/Certificates/ListResponse');
+        $response = file_get_contents(MOCK_BASE_PATH . '/Azure/Managment/Certificates/ListResponse');
         self::$mock->addResponse($response);
 
         /** @var $command \GuzzleHttp\Command\Command */
@@ -26,6 +26,7 @@ class ListTest extends TestCase
 
         $result = self::$client->execute($command);
         $this->assertCount(1, $result["certificates"]);
+        $this->assertEquals('F5E648DD640026EC18956E6BF0384FBDA2E0E5D7', $result["certificates"][0]['SubscriptionCertificateThumbprint']);
 
         $lastRequest = self::$history->getLastRequest();
         $this->assertEquals('GET', $lastRequest->getMethod());

@@ -6,7 +6,7 @@
 
 namespace Guzzle\Azure\Tests\Certificates\Command;
 
-use Guzzle\Azure\Tests\TestCase;
+use Guzzle\Azure\Tests\Managment\TestCase;
 
 use GuzzleHttp\Command\Exception\CommandClientException;
 
@@ -20,7 +20,7 @@ class DeleteTest extends TestCase
      */
     public function testDelete()
     {
-        $response = file_get_contents(MOCK_BASE_PATH . '/Azure/Certificates/DeleteResponse');
+        $response = file_get_contents(MOCK_BASE_PATH . '/Azure/Managment/Certificates/DeleteResponse');
         self::$mock->addResponse($response);
 
         /** @var $command \GuzzleHttp\Command\Command */
@@ -42,7 +42,7 @@ class DeleteTest extends TestCase
      */
     public function testDeleteNotFound()
     {
-        $response = file_get_contents(MOCK_BASE_PATH . '/Azure/Certificates/DeleteNotFoundResponse');
+        $response = file_get_contents(MOCK_BASE_PATH . '/Azure/Managment/Certificates/DeleteNotFoundResponse');
         self::$mock->addResponse($response);
 
         /** @var $command \GuzzleHttp\Command\Command */

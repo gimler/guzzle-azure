@@ -1,0 +1,6 @@
+HTTP/1.1 202 Accepted
+Transfer-Encoding: chunked
+Server: Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
+x-ms-request-id: ab7ba892-0001-0025-589b-e99921000000
+x-ms-version: 2015-02-21
+Date: Mon, 07 Sep 2015 18:29:38 GMT

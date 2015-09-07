@@ -1,0 +1,9 @@
+HTTP/1.1 200 OK
+Transfer-Encoding: chunked
+Content-Type: application/xml
+Server: Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
+x-ms-request-id: a4414f7b-0001-0047-0a42-e9def9000000
+x-ms-version: 2015-02-21
+Date: Mon, 07 Sep 2015 07:55:49 GMT
+
+<?xml version="1.0" encoding="utf-8"?><EnumerationResults ServiceEndpoint="https://savedcite.blob.core.windows.net/"><Containers><Container><Name>test</Name><Properties><Last-Modified>Sat, 05 Sep 2015 19:56:31 GMT</Last-Modified><Etag>"0x8D2B62C185235BC"</Etag><LeaseStatus>unlocked</LeaseStatus><LeaseState>available</LeaseState></Properties></Container></Containers><NextMarker /></EnumerationResults>
