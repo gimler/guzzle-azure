@@ -1,0 +1,11 @@
+HTTP/1.1 404 The specified container does not exist.
+Content-Length: 225
+Content-Type: application/xml
+Server: Windows-Azure-Blob/1.0 Microsoft-HTTPAPI/2.0
+x-ms-request-id: a435e04f-0001-0036-4339-eaacc0000000
+x-ms-version: 2015-02-21
+Date: Tue, 08 Sep 2015 13:25:42 GMT
+
+<?xml version="1.0" encoding="utf-8"?><Error><Code>ContainerNotFound</Code><Message>The specified container does not exist.
+RequestId:a435e04f-0001-0036-4339-eaacc0000000
+Time:2015-09-08T13:25:42.9995218Z</Message></Error>

@@ -5,6 +5,6 @@
     "locations.json",
     "operations.json",
     "Services/storage.json",
-    "Services/hosted.json"
+    "Services/cloud.json"
   ]
 }

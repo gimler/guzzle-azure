@@ -4,7 +4,7 @@
  * @license See the LICENSE file that was distributed with this source code.
  */
 
-namespace Guzzle\Azure\Tests\Locations\Command;
+namespace Guzzle\Azure\Tests\Managment\Locations\Command;
 
 use Guzzle\Azure\Tests\Managment\TestCase;
 

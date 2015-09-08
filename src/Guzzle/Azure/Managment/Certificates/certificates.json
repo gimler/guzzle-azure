@@ -10,6 +10,7 @@
       "httpMethod": "POST",
       "uri": "certificates",
       "description": "The Add Management Certificate operation adds a management certificate to the specified subscription.",
+      "responseModel": "OperationResponse",
       "data": {
         "xmlEncoding": "utf-8",
         "xmlRoot": {
@@ -54,7 +55,7 @@
       "httpMethod": "DELETE",
       "uri": "certificates/{thumbprint}",
       "description": "Deletes a certificate from the list of management certificates.",
-      "responseModel": "Certificate",
+      "responseModel": "OperationResponse",
       "parameters": {
         "thumbprint": {
           "type": "string",
@@ -78,6 +79,24 @@
       "type": "object",
       "additionalProperties": {
         "location": "xml"
+      }
+    },
+    "OperationResponse": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "location": "header",
+          "sentAs": "x-ms-request-id",
+          "type": "string"
+        },
+        "HttpStatusCode": {
+          "location": "statusCode",
+          "type": "integer"
+        },
+        "Status": {
+          "location": "reasonPhrase",
+          "type": "string"
+        }
       }
     }
   }

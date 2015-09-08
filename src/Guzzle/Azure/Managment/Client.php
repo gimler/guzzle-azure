@@ -86,14 +86,4 @@ class Client extends GuzzleClient
 
         parent::__construct($client, $description, []);
     }
-
-    public function getLocations()
-    {
-        return $this->execute($this->getCommand('locations.list'));
-    }
-
-    public function getOperation($id)
-    {
-        return $this->execute($this->getCommand('operations.get', array('request_id' => $id)));
-    }
 }

@@ -1,78 +1,103 @@
 {
-    "operations": {
-        "services.storage.list": {
-            "httpMethod": "GET",
-            "uri": "services/storageservices",
-            "summary": "The List Storage Accounts operation lists the storage accounts available under the current subscription."
+  "operations": {
+    "services.storage.list": {
+      "httpMethod": "GET",
+      "uri": "services/storageservices",
+      "description": "The List Storage Accounts operation lists the storage accounts available under the current subscription."
+    },
+    "services.storage.create": {
+      "httpMethod": "POST",
+      "uri": "services/storageservices",
+      "description": "The Create Storage Account operation creates a new storage account in Windows Azure.",
+      "responseModel": "OperationResponse",
+      "parameters": {
+        "Content-Type": {
+          "default": "application/xml",
+          "static": true,
+          "location": "header:Content-Type"
         },
-        "services.storage.create": {
-            "httpMethod": "POST",
-            "uri": "services/storageservices",
-            "summary": "The Create Storage Account operation creates a new storage account in Windows Azure.",
-            "parameters": {
-                "Content-Type": {
-                    "default": "application/xml",
-                    "static": true,
-                    "location": "header:Content-Type"
-                },
-                "data": {
-                    "type": "string",
-                    "required": true,
-                    "location": "body"
-                }
-            }
-        },
-        "services.storage.delete": {
-            "httpMethod": "DELETE",
-            "uri": "services/storageservices/{service_name}",
-            "summary": "The Delete Storage Account operation deletes the specified storage account from Windows Azure.",
-            "parameters": {
-                "service_name": {
-                    "location": "uri",
-                    "type": "regex:/^[0-9a-z]+$/",
-                    "required": true,
-                    "minLength": 3,
-                    "maxLength": 24
-                }
-            }
-        },
-        "services.storage.keys": {
-            "httpMethod": "GET",
-            "uri": "services/storageservices/{service_name}/keys",
-            "summary": "The Get Storage Keys operation returns the primary and secondary access keys for the specified storage account.",
-            "parameters": {
-                "service_name": {
-                    "location": "uri",
-                    "type": "regex:/^[0-9a-z]+$/",
-                    "required": true,
-                    "minLength": 3,
-                    "maxLength": 24
-                }
-            }
-        },
-        "services.storage.keys.regenerate": {
-            "httpMethod": "POST",
-            "uri": "services/storageservices/{service_name}/keys?action=regenerate",
-            "summary": "The Regenerate Keys operation regenerates the primary or secondary access key for the specified storage account.",
-            "parameters": {
-                "Content-Type": {
-                    "default": "application/xml",
-                    "static": true,
-                    "location": "header:Content-Type"
-                },
-                "service_name": {
-                    "location": "uri",
-                    "type": "regex:/^[0-9a-z]+$/",
-                    "required": true,
-                    "minLength": 3,
-                    "maxLength": 24
-                },
-                "data": {
-                    "location": "body",
-                    "type": "string",
-                    "required": true
-                }
-            }
+        "data": {
+          "type": "string",
+          "required": true,
+          "location": "body"
         }
-   }
+      }
+    },
+    "services.storage.delete": {
+      "httpMethod": "DELETE",
+      "uri": "services/storageservices/{service_name}",
+      "description": "The Delete Storage Account operation deletes the specified storage account from Windows Azure.",
+      "responseModel": "OperationResponse",
+      "parameters": {
+        "service_name": {
+          "location": "uri",
+          "type": "string",
+          "pattern": "/^[0-9a-z]+$/",
+          "required": true,
+          "minLength": 3,
+          "maxLength": 24
+        }
+      }
+    },
+    "services.storage.keys": {
+      "httpMethod": "GET",
+      "uri": "services/storageservices/{service_name}/keys",
+      "description": "The Get Storage Keys operation returns the primary and secondary access keys for the specified storage account.",
+      "parameters": {
+        "service_name": {
+          "location": "uri",
+          "type": "string",
+          "pattern": "/^[0-9a-z]+$/",
+          "required": true,
+          "minLength": 3,
+          "maxLength": 24
+        }
+      }
+    },
+    "services.storage.keys.regenerate": {
+      "httpMethod": "POST",
+      "uri": "services/storageservices/{service_name}/keys?action=regenerate",
+      "description": "The Regenerate Keys operation regenerates the primary or secondary access key for the specified storage account.",
+      "parameters": {
+        "Content-Type": {
+          "default": "application/xml",
+          "static": true,
+          "location": "header:Content-Type"
+        },
+        "service_name": {
+          "location": "uri",
+          "type": "string",
+          "pattern": "/^[0-9a-z]+$/",
+          "required": true,
+          "minLength": 3,
+          "maxLength": 24
+        },
+        "data": {
+          "location": "body",
+          "type": "string",
+          "required": true
+        }
+      }
+    }
+  },
+  "models": {
+    "OperationResponse": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "location": "header",
+          "sentAs": "x-ms-request-id",
+          "type": "string"
+        },
+        "HttpStatusCode": {
+          "location": "statusCode",
+          "type": "integer"
+        },
+        "Status": {
+          "location": "reasonPhrase",
+          "type": "string"
+        }
+      }
+    }
+  }
 }
