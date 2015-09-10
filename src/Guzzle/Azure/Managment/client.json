@@ -6,5 +6,25 @@
     "operations.json",
     "Services/storage.json",
     "Services/cloud.json"
-  ]
+  ],
+  "models": {
+    "OperationResponse": {
+      "type": "object",
+      "properties": {
+        "ID": {
+          "location": "header",
+          "sentAs": "x-ms-request-id",
+          "type": "string"
+        },
+        "HttpStatusCode": {
+          "location": "statusCode",
+          "type": "integer"
+        },
+        "Status": {
+          "location": "reasonPhrase",
+          "type": "string"
+        }
+      }
+    }
+  }
 }

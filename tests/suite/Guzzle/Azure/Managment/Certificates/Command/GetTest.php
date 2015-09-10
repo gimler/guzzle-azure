@@ -24,7 +24,7 @@ class GetTest extends TestCase
         self::$mock->addResponse($response);
 
         /** @var $command \GuzzleHttp\Command\Command */
-        $command = self::$client->getCommand('certificates.get', array('thumbprint' => 'cert1'));
+        $command = self::$client->getCommand('certificates.get', array('SubscriptionCertificateThumbprint' => 'cert1'));
 
         $result = self::$client->execute($command);
         $this->assertEquals('F5E648DD640026EC18956E6BF0384FBDA2E0E5D7', $result['SubscriptionCertificateThumbprint']);
@@ -43,7 +43,7 @@ class GetTest extends TestCase
         self::$mock->addResponse($response);
 
         /** @var $command \GuzzleHttp\Command\Command */
-        $command = self::$client->getCommand('certificates.get', array('thumbprint' => 'cert1'));
+        $command = self::$client->getCommand('certificates.get', array('SubscriptionCertificateThumbprint' => 'cert1'));
 
         try {
             $result = self::$client->execute($command);

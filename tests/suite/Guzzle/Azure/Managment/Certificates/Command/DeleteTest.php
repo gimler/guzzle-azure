@@ -24,7 +24,7 @@ class DeleteTest extends TestCase
         self::$mock->addResponse($response);
 
         /** @var $command \GuzzleHttp\Command\Command */
-        $command = self::$client->getCommand('certificates.delete', array('thumbprint' => 'cert1'));
+        $command = self::$client->getCommand('certificates.delete', array('SubscriptionCertificateThumbprint' => 'cert1'));
 
         $result = self::$client->execute($command);
 
@@ -46,7 +46,7 @@ class DeleteTest extends TestCase
         self::$mock->addResponse($response);
 
         /** @var $command \GuzzleHttp\Command\Command */
-        $command = self::$client->getCommand('certificates.delete', array('thumbprint' => 'cert1'));
+        $command = self::$client->getCommand('certificates.delete', array('SubscriptionCertificateThumbprint' => 'cert1'));
 
         try {
             $result = self::$client->execute($command);
