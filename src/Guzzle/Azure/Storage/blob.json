@@ -4,6 +4,7 @@
       "httpMethod": "GET",
       "uri": "{container}",
       "description": "The List Blobs operation enumerates the list of blobs under the specified container.",
+      "responseModel": "BlobList",
       "parameters": {
         "container": {
           "location": "uri",
@@ -68,14 +69,51 @@
       "uri": "{container}/{blob}",
       "description": "The Put Blob operation creates a new block blob or page blob, or updates the content of an existing block blob.",
       "parameters": {
+        "blob_content_type": {
+          "type": "string",
+          "location": "header",
+          "sentAs": "x-ms-blob-content-type"
+        },
+        "blob_content_encoding": {
+          "type": "string",
+          "location": "header",
+          "sentAs": "x-ms-blob-content-encoding"
+        },
+        "blob_content_language": {
+          "type": "string",
+          "location": "header",
+          "sentAs": "x-ms-blob-content-language"
+        },
+        "blob_content_md5": {
+          "type": "string",
+          "location": "header",
+          "sentAs": "x-ms-blob-content-md5"
+        },
+        "blob_cache_control": {
+          "type": "string",
+          "location": "header",
+          "sentAs": "x-ms-blob-cache-control"
+        },
         "blob_type": {
           "type": "string",
           "enum": [
             "BlockBlob",
-            "PageBlob"
+            "PageBlob",
+            "AppendBlob"
           ],
           "location": "header",
-          "sentAs": "x-ms-blob-type"
+          "sentAs": "x-ms-blob-type",
+          "required": true
+        },
+        "blob_content_disposition": {
+          "type": "string",
+          "location": "header",
+          "sentAs": "x-ms-blob-content-disposition"
+        },
+        "origin": {
+          "type": "string",
+          "location": "header",
+          "sentAs": "Origin"
         },
         "container": {
           "location": "uri",
@@ -104,6 +142,7 @@
       "httpMethod": "DELETE",
       "uri": "{container}/{blob}",
       "description": "The Delete Blob operation marks the specified blob or snapshot for deletion. The blob is later deleted during garbage collection.",
+      "responseModel": "OperationResponse",
       "parameters": {
         "container": {
           "location": "uri",
@@ -121,6 +160,17 @@
           "type": "integer",
           "required": false
         }
+      }
+    }
+  },
+  "models": {
+    "BlobList": {
+      "type": "array",
+      "name": "blobs",
+      "sentAs": "Blobs",
+      "location": "xml",
+      "items": {
+        "type": "object"
       }
     }
   }

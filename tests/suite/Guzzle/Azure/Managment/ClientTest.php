@@ -20,7 +20,6 @@ class ClientTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('https://management.core.windows.net/a6c26c09-324b-41ea-aecb-00807a60be8a/', $httpClient->getBaseUrl());
         $this->assertEquals('vfs://root/cert.pem', $httpClient->getDefaultOption('cert'));
         $this->assertArraySubset(['x-ms-version' => '2015-04-01'], $httpClient->getDefaultOption('headers'));
-        //TODO: check expect config
     }
 
     /**

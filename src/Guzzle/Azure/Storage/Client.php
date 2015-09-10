@@ -12,6 +12,7 @@ use GuzzleHttp\Collection;
 use GuzzleHttp\Command\Guzzle\Description;
 use Webbj74\JSDL\Loader\ServiceDescriptionLoader;
 use GuzzleHttp\Event\BeforeEvent;
+use GuzzleHttp\Event\RequestEvents;
 
 /**
  * Client for interacting with Azure Storage API
@@ -64,13 +65,13 @@ class Client extends GuzzleClient
             'defaults' => [
                 'headers' => array(
                     'x-ms-version' => '2015-02-21',
-                    'Date' => gmdate('D, d M Y H:i:s T', time())
+                    'x-ms-date' => gmdate('D, d M Y H:i:s T', time())
                 ),
             ]
         ));
 
         $emitter = $client->getEmitter();
-        $emitter->on('before', function (BeforeEvent $event, $name) use ($accountName, $accountKey) {
+        $emitter->on('before', function (BeforeEvent $event) use ($accountName, $accountKey) {
             $request = $event->getRequest();
 
             // compute signature
@@ -114,7 +115,7 @@ class Client extends GuzzleClient
             $signature = base64_encode(hash_hmac('sha256', $sign, base64_decode($accountKey), true));
 
             $request->addHeader('Authorization', sprintf('SharedKey %s:%s', $accountName, $signature));
-        });
+        }, RequestEvents::SIGN_REQUEST);
 
         $jsdlLoader = new ServiceDescriptionLoader();
         $description = new Description($jsdlLoader->load(__DIR__ . DIRECTORY_SEPARATOR . 'client.json'));

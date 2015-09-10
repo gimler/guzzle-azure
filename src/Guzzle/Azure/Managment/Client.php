@@ -66,7 +66,6 @@ class Client extends GuzzleClient
         }
 
         //TODO: key_path relative vs. absolute paths
-        //TODO: check expect option nesaccary
         $client = new GuzzleHttpClient(array(
             'base_url' => [
                 $baseUrl,
@@ -77,7 +76,6 @@ class Client extends GuzzleClient
                     'x-ms-version' => '2015-04-01'
                 ),
                 'cert' => $keyPath
-//              'expect' => true,
             ]
         ));
 
