@@ -6,11 +6,15 @@
 
 namespace Guzzle\Azure\Managment;
 
-use GuzzleHttp\Command\Guzzle\GuzzleClient;
+use Guzzle\Service\Loader\JsonLoader;
+
 use GuzzleHttp\Client as GuzzleHttpClient;
 use GuzzleHttp\Collection;
 use GuzzleHttp\Command\Guzzle\Description;
-use Webbj74\JSDL\Loader\ServiceDescriptionLoader;
+use GuzzleHttp\Command\Guzzle\GuzzleClient;
+
+use Symfony\Component\Config\FileLocator;
+
 use Exception;
 
 /**
@@ -79,8 +83,11 @@ class Client extends GuzzleClient
             ]
         ));
 
-        $jsdlLoader = new ServiceDescriptionLoader();
-        $description = new Description($jsdlLoader->load(__DIR__ . DIRECTORY_SEPARATOR . 'client.json'));
+        $this->locator = new FileLocator(array(__DIR__));
+        $this->jsonLoader = new JsonLoader($this->locator);
+
+        $description = $this->jsonLoader->load($this->locator->locate('client.json'));
+        $description = new Description($description);
 
         parent::__construct($client, $description, []);
     }

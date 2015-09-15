@@ -1,6 +1,6 @@
 {
     "name": "guzzle-azure",
-    "includes": [
+    "imports": [
         "blob.json",
         "blob.container.json"
     ],

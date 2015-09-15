@@ -1,6 +1,6 @@
 {
   "name": "guzzle-azure",
-  "includes": [
+  "imports": [
     "Certificates/certificates.json",
     "locations.json",
     "operations.json",

@@ -1,35 +1,33 @@
 {
-    "name": "pazure/guzzle-azure",
-    "type": "library",
-    "description": "Azure plugin for the guzzle php http client.",
-    "keywords": ["framework", "azure", "api"],
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Gordon Franke",
-            "email": "info@nevalon.de"
-        },
-        {
-            "name": "Guzzle Azure Community",
-            "homepage": "https://github.com/gimler/guzzle-azure/contributors"
-        }
-    ],
-    "require": {
-        "php": ">=5.6.0",
-        "guzzlehttp/guzzle": "5.3.0",
-        "guzzlehttp/guzzle-services": "0.5.0",
-        "webbj74/jsdl-loader": "dev-master"
+  "name": "pazure/guzzle-azure",
+  "type": "library",
+  "description": "Azure plugin for the guzzle php http client.",
+  "keywords": [
+    "framework",
+    "azure",
+    "api"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Gordon Franke",
+      "email": "info@nevalon.de"
     },
-    "require-dev": {
-      "icecave/woodhouse": "dev-master",
-      "mikey179/vfsStream": "1.5.0"
-    },
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/webbj74/jsdl-loader"
-        }
-    ],
+    {
+      "name": "Guzzle Azure Community",
+      "homepage": "https://github.com/gimler/guzzle-azure/contributors"
+    }
+  ],
+  "require": {
+    "php": ">=5.6.0",
+    "guzzlehttp/guzzle": "5.3.0",
+    "guzzlehttp/guzzle-services": "0.5.0",
+    "gimler/guzzle-description-loader": "0.0.1"
+  },
+  "require-dev": {
+    "icecave/woodhouse": "dev-master",
+    "mikey179/vfsStream": "1.5.0"
+  },
   "autoload": {
     "psr-4": {
       "Guzzle\\Azure\\": "src/"
