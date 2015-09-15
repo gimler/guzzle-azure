@@ -31,8 +31,8 @@
         }
     ],
   "autoload": {
-    "psr-0": {
-      "Guzzle\\Azure": "src/"
+    "psr-4": {
+      "Guzzle\\Azure\\": "src/"
     }
   },
   "autoload-dev": {
