@@ -25,7 +25,6 @@
     "gimler/guzzle-description-loader": "0.0.1"
   },
   "require-dev": {
-    "icecave/woodhouse": "dev-master",
     "mikey179/vfsStream": "1.5.0"
   },
   "autoload": {
